@@ -8,7 +8,7 @@ fun main() {
 
     fun part2(input: List<String>): Int {
         val intInput: List<Int> = input.map { it.toInt() }
-        val sumThree = intInput.zip(intInput.drop(1), ::sum).zip(intInput.drop(2), ::sum)
+        val sumThree = intInput.windowed(size = 3, transform = { it.sum() })
         return sumThree.zipWithNext().count { it.first < it.second }
     }
 
