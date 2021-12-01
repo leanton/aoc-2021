@@ -1,17 +1,12 @@
+import java.lang.Integer.sum
+
 fun main() {
-    fun part1(input: List<String>): Int {
-        return input.size
-    }
+    val input = readInput("data/Day01")
+    val intInput = input.map { it.toInt() }
+    val count = intInput.zipWithNext().count { it.first < it.second }
+    println(count)
 
-    fun part2(input: List<String>): Int {
-        return input.size
-    }
-
-    // test if implementation meets criteria from the description, like:
-    val testInput = readInput("Day01_test")
-    check(part1(testInput) == 1)
-
-    val input = readInput("Day01")
-    println(part1(input))
-    println(part2(input))
+    val sumThree = intInput.zip(intInput.drop(1), ::sum).zip(intInput.drop(2), ::sum)
+    val countSum3 = sumThree.zipWithNext().count { it.first < it.second }
+    println(countSum3)
 }
