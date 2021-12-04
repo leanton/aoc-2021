@@ -1,5 +1,3 @@
-import java.lang.Integer.sum
-
 fun main() {
     fun part1(input: List<String>): Int {
         val intInput = input.map { it.toInt() }
